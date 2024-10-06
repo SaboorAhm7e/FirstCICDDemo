@@ -1,0 +1,27 @@
+version: 2.1
+
+jobs:
+  build-and-test:
+    macos:
+      xcode: "14.0.0"  # Use your Xcode version
+    steps:
+      - checkout  # Pulls the code from your GitHub repository
+
+      - run:
+          name: Install Bundler
+          command: gem install bundler
+
+      # If you use CocoaPods, uncomment this step
+      # - run:
+      #     name: Install CocoaPods Dependencies
+      #     command: bundle exec pod install --repo-update
+
+      - run:
+          name: Build and Test
+          command: xcodebuild test -project FirstCICDDemo.xcodeproj -scheme FirstCICDDemo -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build-and-test
