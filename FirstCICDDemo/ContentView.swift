@@ -1,4 +1,4 @@
-//
+ //
 //  ContentView.swift
 //  FirstCICDDemo
 //
@@ -10,12 +10,17 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName :"person.circle")
                 .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Saboor Ahmad")
+                .font(.footnote)
+            Text("CI/CD")
         }
+        .frame(width: 100,height: 100)
         .padding()
+        .background(.ultraThinMaterial)
+        .cornerRadius(10)
+        
     }
 }
 
