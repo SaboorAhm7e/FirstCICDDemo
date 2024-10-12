@@ -3,22 +3,26 @@ version: 2.1
 jobs:
   build-and-test:
     macos:
-      xcode: "14.0.0"  # Use your Xcode version
+      xcode: "15.2"  # Use your Xcode version
     steps:
       - checkout  # Pulls the code from your GitHub repository
 
       - run:
+          name: Check Ruby version
+          command: ruby -v
+          
+      - run:
           name: Install Bundler
-          command: gem install bundler
+          command: gem install bundler --user-install
 
-      # If you use CocoaPods, uncomment this step
-      # - run:
-      #     name: Install CocoaPods Dependencies
-      #     command: bundle exec pod install --repo-update
+     # Install dependencies
+      - run:
+          name: Install Dependencies
+          command: bundle install
 
       - run:
           name: Build and Test
-          command: xcodebuild test -project FirstCICDDemo.xcodeproj -scheme FirstCICDDemo -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
+          command: xcodebuild test -project FirstCICDDemo.xcodeproj -scheme FirstCICDDemo -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2'
 
 workflows:
   version: 2
