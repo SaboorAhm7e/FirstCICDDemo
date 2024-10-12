@@ -7,19 +7,25 @@ jobs:
     steps:
       - checkout  # Pulls the code from your GitHub repository
 
-      - run:
-          name: Check Ruby version
-          command: ruby -v
+      #- run:
+          #name: Check Ruby version
+          #command: ruby -v
           
-      - run:
-          name: Install Bundler
-          command: gem install bundler --user-install
+      #- run:
+          #name: Install Bundler
+          #command: gem install bundler --user-install
 
      # Install dependencies
-      - run:
-          name: Install Dependencies
-          command: bundle install
+      #- run:
+          #name: Install Dependencies
+          #command: bundle install
 
+      - run:
+          name: Debug Environment
+          command: |
+            xcodebuild -version
+            xcode-select -p
+            
       - run:
           name: Build and Test
           command: xcodebuild test -project FirstCICDDemo.xcodeproj -scheme FirstCICDDemo -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2'
