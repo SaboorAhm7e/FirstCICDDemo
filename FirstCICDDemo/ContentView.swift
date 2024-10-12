@@ -14,7 +14,7 @@ struct ContentView: View {
                 .imageScale(.large)
             Text("Saboor Ahmad")
                 .font(.footnote)
-            Text("CI/CD")
+            Text("CI/CD Demo")
         }
         .frame(width: 100,height: 100)
         .padding()
